@@ -6,9 +6,10 @@ use sdl2::event::Event;
 use sdl2::keyboard::Keycode;
 
 fn main() {
-    let game_window = GameWindow::new("Rust AI Sandbox", 800, 600).unwrap();
+    let game_window = GameWindow::new("Rust AI Sandbox", 1280, 720).unwrap();
 
-    let renderer = Renderer::new(&game_window.window).unwrap();
+    let renderer =
+        Renderer::new(&game_window.window, game_window.width, game_window.height).unwrap();
 
     let mut event_pump = game_window.sdl.event_pump().unwrap();
 

@@ -9,6 +9,8 @@ pub struct GameWindow {
     pub sdl: Sdl,
 
     pub window: Window,
+    pub width: u32,
+    pub height: u32,
 
     #[allow(dead_code)]
     pub gl_context: GLContext,
@@ -23,6 +25,8 @@ impl GameWindow {
         let gl_attr = video.gl_attr();
 
         gl_attr.set_context_profile(sdl2::video::GLProfile::Core);
+
+        gl_attr.set_context_flags().debug().set();
 
         gl_attr.set_context_version(4, 6);
 
@@ -41,6 +45,8 @@ impl GameWindow {
             sdl,
 
             window,
+            width,
+            height,
 
             gl_context,
         })
